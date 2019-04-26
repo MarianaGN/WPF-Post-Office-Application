@@ -1,0 +1,74 @@
+﻿<local:BasePage x:TypeArguments="core:LoginViewModel" x:Class="Coursework1.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Coursework1"
+      xmlns:core="clr-namespace:Coursework1.Core;assembly=Coursework1.Core"
+      mc:Ignorable="d"
+      x:Name="Page"
+      d:DesignHeight="700" d:DesignWidth="700"
+      Title="LoginPage">
+
+    <!--<Border Background="{StaticResource WordBlueBrush}">-->
+    <Border>
+        <Grid>
+
+            <!-- Blue background image-->
+            <!--
+            <Grid.Background>
+                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" ImageSource="../Images/Backgrouds/emoji-background.png"></ImageBrush>
+            </Grid.Background>-->
+
+            <!-- Main content scroll -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            TextBlock.TextAlignment="Center">
+
+                    <!-- Login main content white box -->
+                    <Border Background="{StaticResource ForegroundLightBrush}"
+                            CornerRadius="10"
+                            Padding="15 50 15 40"
+                            Width="330"
+                            Margin="50 50 50 50">
+
+                        <!-- Sign up header -->
+                        <StackPanel>
+                            <TextBlock Text="Sign In" 
+                                       FontFamily="{StaticResource LatoRegular}"
+                                       FontSize="{StaticResource FontSizeLarge}"
+                                       Foreground="{StaticResource ForegroundVeryDarkBrush}"/>
+
+                            <!-- Sign up subtext -->
+                            <TextBlock Text="It's about to get fun!"
+                                       FontSize="{StaticResource FontSizeRegular}"
+                                       Foreground="{StaticResource ForegroundDarkBrush}"
+                                       Margin="0 0 0 20"/>
+
+                            <!-- Email -->
+                            <TextBox Text="{Binding Email}" Tag="Email"/>
+
+                            <!-- Password -->
+                            <PasswordBox x:Name="PasswordText" Tag="Password" Margin="0 0 0 30"/>
+
+                            <!-- Next button -->
+                            <Button Content="Login" 
+                                    local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                                    Command="{Binding LoginCommand}"
+                                    CommandParameter="{Binding ElementName=Page}" 
+                                    HorizontalAlignment="Center" />
+
+                        </StackPanel>
+                    </Border>
+
+                    <!--<Button Style="{StaticResource TextButton}" 
+                            Content="I already have an account" 
+                            Command="{Binding SideMenuCommand}"
+                            HorizontalAlignment="Center"/>-->
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</local:BasePage>
