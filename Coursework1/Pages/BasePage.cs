@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Coursework1.Animation;
@@ -9,7 +10,7 @@ namespace Coursework1
     /// <summary>
     /// The base page for all pages to gain base functionality
     /// </summary>
-    public class BasePage : Page
+    public class BasePage : UserControl
     {
         #region Public Properties
 
@@ -19,57 +20,88 @@ namespace Coursework1
 
         public float SlideSeconds { get; set; } = 0.4f;
 
+        /// <summary>
+        /// A flag to indicate if this page should animate out on load.
+        /// Useful for when we are moving the page to another frame
+        /// </summary>
+        public bool ShouldAnimateOut { get; set; }
+
         #endregion
 
         #region Constructor
 
         public BasePage()
         {
-            if (this.PageLoadAnimation != PageAnimation.None)
-                this.Visibility = Visibility.Collapsed;
+            // Don't bother animating in design time
+            if (DesignerProperties.GetIsInDesignMode(this))
+                return;
 
-            this.Loaded += BasePage_Loaded;
+            // If we are animating in, hide to begin with
+            if (PageLoadAnimation != PageAnimation.None)
+                Visibility = Visibility.Collapsed;
+
+            // Listen out for the page loading
+            Loaded += BasePage_LoadedAsync;
         }
 
         #endregion
 
-        #region Animation Load / Unload 
+        #region Animation Load / Unload
 
         /// <summary>
         /// Once the page is loaded, perform any required animation
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void BasePage_Loaded(object sender, RoutedEventArgs e)
+        private async void BasePage_LoadedAsync(object sender, System.Windows.RoutedEventArgs e)
         {
-            await AnimateIn();
+            // If we are setup to animate out on load
+            if (ShouldAnimateOut)
+                // Animate out the page
+                await AnimateOutAsync();
+            // Otherwise...
+            else
+                // Animate the page in
+                await AnimateInAsync();
         }
 
-        public async Task AnimateIn()
+        /// <summary>
+        /// Animates the page in
+        /// </summary>
+        /// <returns></returns>
+        public async Task AnimateInAsync()
         {
-            if (this.PageLoadAnimation == PageAnimation.None)
+            // Make sure we have something to do
+            if (PageLoadAnimation == PageAnimation.None)
                 return;
 
-            switch (this.PageLoadAnimation)
+            switch (PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeInFromRight:
 
-                    await this.SlideAndFadeInFromRight(this.SlideSeconds);
+                    // Start the animation
+                    await this.SlideAndFadeInFromRightAsync(SlideSeconds, width: (int)Application.Current.MainWindow.Width);
 
                     break;
             }
         }
 
-        public async Task AnimateOut()
+        /// <summary>
+        /// Animates the page out
+        /// </summary>
+        /// <returns></returns>
+        public async Task AnimateOutAsync()
         {
-            if (this.PageUnloadAnimation == PageAnimation.None)
+            // Make sure we have something to do
+            if (PageUnloadAnimation == PageAnimation.None)
                 return;
 
-            switch (this.PageUnloadAnimation)
+            switch (PageUnloadAnimation)
             {
                 case PageAnimation.SlideAndFadeOutToLeft:
 
-                    await this.SlideAndFadeOutToLeft(this.SlideSeconds);
+                    // Start the animation
+                    await this.SlideAndFadeOutToLeftAsync(SlideSeconds);
 
                     break;
             }

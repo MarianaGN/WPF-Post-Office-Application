@@ -7,8 +7,7 @@
       xmlns:core="clr-namespace:Coursework1.Core;assembly=Coursework1.Core"
       mc:Ignorable="d"
       x:Name="Page"
-      d:DesignHeight="700" d:DesignWidth="700"
-      Title="LoginPage">
+      d:DesignHeight="700" d:DesignWidth="700">
 
     <!--<Border Background="{StaticResource WordBlueBrush}">-->
     <Border>
@@ -47,13 +46,16 @@
                                        Margin="0 0 0 20"/>
 
                             <!-- Email -->
-                            <TextBox Text="{Binding Email}" Tag="Email"/>
+                            <TextBox Text="{Binding Email}"
+                                     local:IsFocusedProperty.Value="true"
+                                     Tag="Email"/>
 
                             <!-- Password -->
                             <PasswordBox x:Name="PasswordText" Tag="Password" Margin="0 0 0 30"/>
 
                             <!-- Next button -->
                             <Button Content="Login" 
+                                    IsDefault="True"
                                     local:IsBusyProperty.Value="{Binding LoginIsRunning}"
                                     Command="{Binding LoginCommand}"
                                     CommandParameter="{Binding ElementName=Page}" 

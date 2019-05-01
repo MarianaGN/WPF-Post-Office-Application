@@ -4,16 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:coursework1="clr-namespace:Coursework1"
+      xmlns:local="clr-namespace:Coursework1"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="650"
-      Title="Content">
+      d:DesignHeight="700" d:DesignWidth="700">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="Hello, Mariana" 
-                   Foreground="White" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" FontSize="{StaticResource FontSizeLarge}"/>
+    <Border>
+        <local:AddParcelControl 
+            local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.SettingsMenuVisible, Source={x:Static local:ViewModelLocator.Instance}}"/>
+    </Border>
 
-
-    </StackPanel>
 </coursework1:BasePage>

@@ -21,7 +21,7 @@
                     <ControlTemplate TargetType="{x:Type Window}">
 
                         <!-- Outer border with dropshadow margin-->
-                        <Border Margin="{Binding OuterMarginResizeThickness, FallbackValue=10}">
+                        <Border Padding="{Binding OuterMarginResizeThickness, FallbackValue=10}">
 
                             <!-- Main window outline -->
                             <Grid>

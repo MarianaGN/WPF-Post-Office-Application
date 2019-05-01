@@ -16,14 +16,11 @@
                 <!-- Content -->
                 <StackPanel>
                     <Button Content="Add Parcel" 
-                            Style="{StaticResource MenuButton}"
-                            Command="{Binding AddParcelViewModel.OpenCommand, Source={x:Static local:ViewModelLocator.Instance}}"/>
+                            Style="{StaticResource MenuButton}"/>
                     <Button Content="Generate Report" 
-                            Style="{StaticResource MenuButton}"
-                            Command="{Binding AddParcelViewModel.OpenCommand, Source={x:Static local:ViewModelLocator.Instance}}"/>
+                            Style="{StaticResource MenuButton}"/>
                     <Button Content="Delete Parcel" 
-                            Style="{StaticResource MenuButton}"
-                            Command="{Binding AddParcelViewModel.OpenCommand, Source={x:Static local:ViewModelLocator.Instance}}"/>
+                            Style="{StaticResource MenuButton}"/>
                 </StackPanel>
             </Border>
         </ControlTemplate>
