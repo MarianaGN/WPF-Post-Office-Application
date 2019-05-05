@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Coursework1.Core;
 
 namespace Coursework1
 {
@@ -10,6 +11,8 @@ namespace Coursework1
         public MenuContentControl()
         {
             InitializeComponent();
+
+            DataContext = IoC.MenuContent;
         }
     }
 }

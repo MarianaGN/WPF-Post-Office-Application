@@ -4,90 +4,85 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Coursework1"
+             xmlns:core="clr-namespace:Coursework1.Core;assembly=Coursework1.Core"
              mc:Ignorable="d">
 
-    <Border Padding="15" 
-            Background="{StaticResource ForegroundLightBrush}"
-            >
+    <Border Padding="15 10 0 15" Background="{StaticResource ForegroundLightBrush}">
 
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- Setting Title -->
-            <Grid Height="40" Margin="0 0 0 20">
+            <Grid Height="40" Margin="0 0 0 5">
 
-                <!-- Back Button -->
-                <Button Style="{StaticResource IconGrowButton}"
-                        Height="40"
-                        Content="{StaticResource FontAwesomeLeftArrowIcon}"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Foreground="{StaticResource ForegroundDarkBrush}"
-                        Background="{StaticResource ForegroundLightBrush}"
-                        Command="{Binding CloseCommand}"
-                        />
-
+                
                 <!-- Setting Header -->
                 <TextBlock FontSize="{StaticResource FontSizeBiggerRegular}"
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center">
-                    <!-- Cog Icon -->
-                    <Run FontFamily="{StaticResource FontAwesome}"
-                         Text="{StaticResource FontAwesomeCogIcon}"
-                         Foreground="{StaticResource WordOrangeBrush}"/>
 
-                    <!-- Setting Text -->
-                    <Run Text="Setting" FontFamily="{StaticResource LatoRegular}"/>
+                    <!-- Cog Icon -->
+                        <Run FontFamily="{StaticResource FontAwesome}"
+                             Text="{StaticResource CreateParcelIcon}"
+                             Foreground="{StaticResource BackgroundPinkBrush}"/>
+
+                        <!-- Setting Text -->
+                        <Run Text="Add Parcel" FontFamily="{StaticResource LatoRegular}"/>
                 </TextBlock>
 
             </Grid>
 
             <!-- Main Content -->
-            <Grid Grid.Row="1"
-                  Width="700"
-                  VerticalAlignment="Top"
-                  >
+            <Grid Grid.Row="1" Width="500" VerticalAlignment="Top">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="260" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl Padding="0 0 15 0">
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                        <local:TextEntryControl/>
+                    </ItemsControl>
+                </ScrollViewer>
 
-
-                <!-- Profile Picture -->
-                <Grid Margin="0 0 30 0"
-                      Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}">
-
-                    <!-- Mask for rounded corners-->
-                    <Border CornerRadius="8"
-                            Name="Mask"
-                            Background="White"
-                            />
-
-                    <!-- Image -->
-                    <Grid>
-                        <Grid.OpacityMask>
-                            <VisualBrush Visual="{Binding ElementName=Mask}" />
-                        </Grid.OpacityMask>
-
-                        <Image Source="../Images/Samples/city.jpg" Stretch="UniformToFill" />
-                    </Grid>
-
-                </Grid>
-
-                <StackPanel Grid.Column="1">
-                    <local:TextEntryControl/>
-                    <local:TextEntryControl/>
-                    <local:TextEntryControl/>
-                    <local:TextEntryControl/>
-                </StackPanel>
             </Grid>
 
+            <Grid Grid.Row="2" Margin="0 10 0 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Save Button -->
+                <Button Grid.Column="0"
+                        Style="{StaticResource SaveParcelButton}"
+                        Width="90"
+                        Margin="170 0 10 0"
+                        Content="Save"
+                />
+
+                <!-- Cancel Button -->
+                <Button Grid.Column="1"
+                        Style="{StaticResource CancelParcelButton}"
+                        Margin="10 0 180 0"
+                        Content="Cancel"
+                        Command="{Binding CloseCommand}"
+                />
+            </Grid>
 
         </Grid>
+
     </Border>
 
 </UserControl>

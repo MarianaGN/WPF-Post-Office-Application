@@ -25,6 +25,12 @@ namespace Coursework1.Core
         public static SettingsViewModel Settings => IoC.Get<SettingsViewModel>();
 
         /// <summary>
+        /// A shortcut to access the <see cref="MenuContentControlViewModel"/>
+        /// </summary>
+        public static MenuContentControlViewModel MenuContent => IoC.Get<MenuContentControlViewModel>();
+
+
+        /// <summary>
         /// A shortcut to access the <see cref="AddParcelViewModel"/>
         /// </summary>
         public static AddParcelViewModel AddParcel => IoC.Get<AddParcelViewModel>();

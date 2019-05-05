@@ -9,8 +9,10 @@
       d:DesignHeight="700" d:DesignWidth="700">
 
     <Border>
-        <local:AddParcelControl 
-            local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.SettingsMenuVisible, Source={x:Static local:ViewModelLocator.Instance}}"/>
+        <local:AddParcelControl Visibility="Hidden"
+            local:AnimateSlideInFromRightProperty.Value="{Binding ApplicationViewModel.AddParcelControlVisible, Source={x:Static local:ViewModelLocator.Instance}}">
+            
+        </local:AddParcelControl>
     </Border>
 
 </coursework1:BasePage>

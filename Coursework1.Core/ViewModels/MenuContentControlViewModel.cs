@@ -2,7 +2,7 @@
 
 namespace Coursework1.Core
 {
-    public class MenuControlViewModel : BaseViewModel
+    public class MenuContentControlViewModel : BaseViewModel
     {
         #region Public Properties
 
@@ -17,7 +17,7 @@ namespace Coursework1.Core
 
         #region Default Constructor
 
-        public MenuControlViewModel()
+        public MenuContentControlViewModel()
         {
             OpenCommand = new RelayCommand(Open);
         }
@@ -28,7 +28,7 @@ namespace Coursework1.Core
 
         private void Open()
         {
-            IoC.Application.SettingsMenuVisible = true;
+            IoC.Application.GoToPage(ApplicationPage.Content, new AddParcelViewModel());
         }
 
         #endregion

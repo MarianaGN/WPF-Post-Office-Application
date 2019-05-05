@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows.Controls;
 using Coursework1.Core;
 
 namespace Coursework1
@@ -11,6 +12,8 @@ namespace Coursework1
         public SettingsControl()
         {
             InitializeComponent();
+
+            // Set data context to settings view model
             DataContext = IoC.Settings;
         }
     }

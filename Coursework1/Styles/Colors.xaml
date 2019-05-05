@@ -48,18 +48,24 @@
     <SolidColorBrush x:Key="WordGreenBrush" Color="{StaticResource WordGreen}" />
 
     <Color x:Key="BackgroundPink">#C5BBB9</Color>
-    <SolidColorBrush x:Key="BackgroundPinkBrush" Color="{StaticResource BackgroundPink}"></SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundPinkBrush" Color="{StaticResource BackgroundPink}"/>
 
     <Color x:Key="ButtonDarkBackground">#403B3A</Color> 
-    <SolidColorBrush x:Key="ButtonDarkBackgroundBrush" Color="{StaticResource ButtonDarkBackground}"></SolidColorBrush>
+    <SolidColorBrush x:Key="ButtonDarkBackgroundBrush" Color="{StaticResource ButtonDarkBackground}"/>
 
     <Color x:Key="SettingButtonBackground">#9E8E8B</Color>
-    <SolidColorBrush x:Key="SettingButtonBackgroundBrush" Color="{StaticResource SettingButtonBackground}"></SolidColorBrush>
+    <SolidColorBrush x:Key="SettingButtonBackgroundBrush" Color="{StaticResource SettingButtonBackground}"/>
 
     <Color x:Key="LightPinkBackground">#E7D5D1</Color>
-    <SolidColorBrush x:Key="LightPinkBackgroundBrush" Color="{StaticResource LightPinkBackground}"></SolidColorBrush>
+    <SolidColorBrush x:Key="LightPinkBackgroundBrush" Color="{StaticResource LightPinkBackground}"/>
 
     <Color x:Key="TextBlockLoginDark">#6E5844</Color>
-    <SolidColorBrush x:Key="TextBlockLoginDarkBrush" Color="{StaticResource TextBlockLoginDark}"></SolidColorBrush>
+    <SolidColorBrush x:Key="TextBlockLoginDarkBrush" Color="{StaticResource TextBlockLoginDark}"/>
+
+    <Color x:Key="DarkerRed">#B11111</Color>
+    <SolidColorBrush x:Key="DarkerRedBrush" Color="{StaticResource DarkerRed}"/>
+
+    <Color x:Key="DarkerGreen">#2C700D</Color>
+    <SolidColorBrush x:Key="DarkerGreenBrush" Color="{StaticResource DarkerGreen}"/>
 
 </ResourceDictionary>

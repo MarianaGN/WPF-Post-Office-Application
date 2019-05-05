@@ -37,4 +37,10 @@
     <system:String x:Key="FontAwesomeTickIcon">&#xf00c;</system:String>
     <system:String x:Key="FontAwesomeEllipsisVerticalIcon">&#xf142;</system:String>
     <system:String x:Key="FontAwesomeEllipsisIcon">&#xf141;</system:String>
+
+    <!-- icons for create/edit/delete pages-->
+    <system:String x:Key="CreateParcelIcon">&#xf0fe;</system:String>
+    <system:String x:Key="DeleteParcelIcon">&#xf2ed;</system:String>
+    <system:String x:Key="EditParcelIcon">&#xf044;</system:String>
+    <system:String x:Key="CloseIcon">&#xf00d;</system:String>
 </ResourceDictionary>

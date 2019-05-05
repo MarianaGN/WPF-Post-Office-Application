@@ -30,6 +30,12 @@ namespace Coursework1.Core
         {
             OpenCommand = new RelayCommand(Open);
             CloseCommand = new RelayCommand(Close);
+
+            // Remove in future, add data from real database
+            Name = new TextEntryViewModel { Label = "Name", OriginalText = "Mariana Kovalchuk" };
+            Username = new TextEntryViewModel { Label = "Username", OriginalText = "Mariana" };
+            Password = new TextEntryViewModel { Label = "Password", OriginalText = "*******" };
+            Email = new TextEntryViewModel { Label = "Email", OriginalText = "mariana@gmail.com" };
         }
 
         #endregion

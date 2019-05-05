@@ -49,7 +49,7 @@ namespace Coursework1.Core
         /// <returns></returns>
         public async Task LoginAsync(object parameter)
         {
-            await RunCommand(() => this.LoginIsRunning, async () =>
+            await RunCommandAsync(() => this.LoginIsRunning, async () =>
             {
                 IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Content);
                 //var email = this.Email;

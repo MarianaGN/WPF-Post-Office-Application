@@ -38,12 +38,12 @@ namespace Coursework1.Core
 
         private void Close()
         {
-            IoC.Application.SettingsMenuVisible = false;
+            IoC.Application.AddParcelControlVisible = false;
         }
 
         private void Open()
         {
-            IoC.Application.SettingsMenuVisible = true;
+            IoC.Application.AddParcelControlVisible = true;
         }
 
         #endregion

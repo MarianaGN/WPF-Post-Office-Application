@@ -26,6 +26,8 @@ namespace Coursework1
 
         public static AddParcelViewModel AddParcelViewModel => IoC.AddParcel;
 
+        public static MenuContentControlViewModel MenuContentControlViewModel => IoC.MenuContent;
+
         #endregion
     }
 }
