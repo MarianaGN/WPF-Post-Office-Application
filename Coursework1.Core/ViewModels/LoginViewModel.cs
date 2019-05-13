@@ -1,6 +1,7 @@
 ﻿using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Coursework1.Core.ApiModels;
 
 namespace Coursework1.Core
 {
@@ -51,14 +52,18 @@ namespace Coursework1.Core
         {
             await RunCommandAsync(() => this.LoginIsRunning, async () =>
             {
+                // Call the server and attempt to login credentials
+                var result =
+                    await Dna.WebRequests.PostAsync<ApiResponse<LoginResultApiModel>>(
+                        "http://localhost:5000/api/login",
+                        new LoginCredentialsApiModel
+                        {
+                            UsernameOrEmail = Email,
+                            Password = (parameter as IHavePassword).SecurePassword.Unsecure()
+                        });
+
                 IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Content);
-                //var email = this.Email;
-
-                //// IMPORTANT: Never store unsecure password in variable like this
-                //var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
             });
-            //await ShowSideMenuAsync();
-
         }
     }
 }
